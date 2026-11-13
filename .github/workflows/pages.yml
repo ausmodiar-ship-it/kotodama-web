@@ -1,0 +1,44 @@
+name: Publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  # Weekly, so the dictionary and sentences stay current (JMdict's licence asks for updates)
+  schedule:
+    - cron: '17 3 * * 1'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Offline data: 100,000 everyday sentences (Tatoeba) and the dictionary (JMdict)
+      - run: node scripts/build-phrases.mjs
+      - run: node scripts/build-dictionary.mjs
+      - name: Assemble the site
+        run: |
+          mkdir -p site/dict
+          cp index.html app.js app.css sw.js manifest.webmanifest *.png icon.svg site/
+          cp public/dict/* site/dict/
+          ls -la site site/dict
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

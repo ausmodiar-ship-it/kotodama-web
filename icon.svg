@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#050814"/>
+    </radialGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="neonPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Background -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGlow)"/>
+
+  <!-- Cyber Hexagon Crest -->
+  <polygon points="256,48 440,154 440,358 256,464 72,358 72,154" 
+           stroke="url(#neonCyan)" stroke-width="12" fill="none"/>
+  
+  <!-- Inner Ring -->
+  <circle cx="256" cy="256" r="140" stroke="url(#neonPurple)" stroke-width="8" stroke-dasharray="24 12" fill="none"/>
+
+  <!-- Japanese Kanji / Kotodama Cross Emblem -->
+  <path d="M190 180 H322 M256 180 V332 M180 256 H332 M200 332 H312" 
+        stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
+  
+  <circle cx="256" cy="256" r="24" fill="#f43f5e"/>
+</svg>
