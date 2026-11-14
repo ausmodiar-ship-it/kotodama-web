@@ -592,8 +592,8 @@
   .min-w-0 {
     min-width: 0px;
   }
-  .min-w-9 {
-    min-width: calc(var(--spacing) * 9);
+  .min-w-10 {
+    min-width: calc(var(--spacing) * 10);
   }
   .min-w-\[140px\] {
     min-width: 140px;
@@ -1442,15 +1442,6 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
-  .text-\[9px\] {
-    font-size: 9px;
-  }
-  .text-\[10px\] {
-    font-size: 10px;
-  }
-  .text-\[11px\] {
-    font-size: 11px;
-  }
   .text-\[13px\] {
     font-size: 13px;
   }
@@ -1559,9 +1550,6 @@
   }
   .text-slate-400 {
     color: var(--color-slate-400);
-  }
-  .text-slate-500 {
-    color: var(--color-slate-500);
   }
   .text-slate-700 {
     color: var(--color-slate-700);
@@ -2075,9 +2063,6 @@
     .sm\:text-xs {
       font-size: var(--text-xs);
       line-height: var(--tw-leading, var(--text-xs--line-height));
-    }
-    .sm\:text-\[11px\] {
-      font-size: 11px;
     }
   }
   @media (width >= 48rem) {
