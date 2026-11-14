@@ -1,7 +1,7 @@
 // Keeps Kotodama opening with no signal. App files: served from the cache at once and refreshed
 // in the background (the new version shows on the next launch). The dictionary and sentence
 // files are not cached here: the app stores them on the phone itself.
-const CACHE = 'kotodama-v2';
+const CACHE = 'kotodama-v3';
 const SHELL = ['./', './index.html', './app.js', './app.css', './manifest.webmanifest', './icon.svg', './apple-touch-icon.png', './pwa-192x192.png'];
 
 self.addEventListener('install', (e) => {
@@ -20,7 +20,7 @@ self.addEventListener('fetch', (e) => {
         const cached = await cache.match(e.request);
         if (cached) return cached;
         const res = await fetch(e.request);
-        if (res.ok) cache.put(e.request, res.clone());
+        if (res.ok || res.type === 'opaque') cache.put(e.request, res.clone());
         return res;
       })
     );

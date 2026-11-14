@@ -1563,9 +1563,6 @@
   .text-slate-500 {
     color: var(--color-slate-500);
   }
-  .text-slate-600 {
-    color: var(--color-slate-600);
-  }
   .text-slate-700 {
     color: var(--color-slate-700);
   }
@@ -1580,6 +1577,9 @@
   }
   .underline {
     text-decoration-line: underline;
+  }
+  .placeholder-slate-300::placeholder {
+    color: var(--color-slate-300);
   }
   .placeholder-slate-500::placeholder {
     color: var(--color-slate-500);
@@ -1762,11 +1762,11 @@
   .peer-focus-visible\:ring-cyan-300:is(:where(.peer):focus-visible ~ *) {
     --tw-ring-color: var(--color-cyan-300);
   }
-  .placeholder\:text-slate-500::placeholder {
-    color: var(--color-slate-500);
+  .placeholder\:text-slate-300::placeholder {
+    color: var(--color-slate-300);
   }
-  .placeholder\:text-slate-600::placeholder {
-    color: var(--color-slate-600);
+  .placeholder\:text-slate-400::placeholder {
+    color: var(--color-slate-400);
   }
   .after\:absolute::after {
     content: var(--tw-content);
@@ -2124,8 +2124,10 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wave-bar, .turn-in, .animate-fade-in, .animate-pulse, .animate-ping, .animate-bounce {
-    animation: none;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 @property --tw-translate-x {
